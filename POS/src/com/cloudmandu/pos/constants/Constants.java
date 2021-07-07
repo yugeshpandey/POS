@@ -9,4 +9,11 @@ public class Constants {
 	public static double CORONA_PRICE = 9.99;
 	public static double CORONA_ALC_CONTENT = 4.0;
 	public static double CORONA_DISCOUNT = 5.0;
+	
+	public static String POWERBALL = "Powerball";
+	public static int POWERBALL_PRICE = 2;
+	
+	
+	public static String MEGAMILLION = "Megamillion";
+	public static int MEGAMILLION_PRICE = 3;
 }

@@ -5,6 +5,8 @@ import java.util.Map;
 
 import com.cloudmandu.pos.inventory.beers.Corona;
 import com.cloudmandu.pos.inventory.beers.Heinekein;
+import com.cloudmandu.pos.inventory.lottery.Megamillion;
+import com.cloudmandu.pos.inventory.lottery.Powerball;
 
 public class Inventory {
 	
@@ -13,6 +15,8 @@ public class Inventory {
 	public void stockInventory() {
 		inventory.put(100, new Heinekein());
 		inventory.put(101, new Corona());
+		inventory.put(200, new Powerball());
+		inventory.put(201, new Megamillion());
 		
 	}
 
