@@ -1,6 +1,7 @@
 package com.cloudmandu.pos;
 
 import com.cloudmandu.pos.inventory.Inventory;
+import com.cloudmandu.pos.printer.Printer;
 
 public class Pos {
 
@@ -10,7 +11,8 @@ public class Pos {
 		
 		inventory.stockInventory();
 		
-		System.out.println(inventory.getInventory());
+		Printer printer = new Printer();
+		printer.displayInventory(inventory);
 		//Display Inventory - print
 		//Select Item - Scanner , loop
 		//Store items - ArrayList
