@@ -39,11 +39,11 @@ public class Printer {
 		
 		BaseItem selectedItem = inventory.get(selectedItemId);
 		System.out.println("The following item was added to your cart: ");
+		System.out.printf("%20s" , "Name");
+		System.out.printf("%10s" , "Price");
+		System.out.println("\n");
 		System.out.printf("%20s" , selectedItem.getName());
 		System.out.printf("%10.2f" , selectedItem.getPrice());
-		System.out.printf("%10.2f", selectedItem.getDiscount());
-		
-		System.out.printf("%10s" , selectedItem.isInStock());
 		System.out.println();
 		
 		return selectedItem;
