@@ -33,5 +33,22 @@ public class Printer {
 			System.out.println();
 		}
 	}
+	
+	public BaseItem displayItem(Inventory inventoryObject, int selectedItemId) {
+		Map<Integer, BaseItem> inventory = inventoryObject.getInventory();
+		
+		BaseItem selectedItem = inventory.get(selectedItemId);
+		System.out.println("The following item was added to your cart: ");
+		System.out.printf("%20s" , "Name");
+		System.out.printf("%10s" , "Price");
+		System.out.println("\n");
+		System.out.printf("%20s" , selectedItem.getName());
+		System.out.printf("%10.2f" , selectedItem.getPrice());
+		System.out.println();
+		
+		return selectedItem;
+				
+		
+	}
 
 }
