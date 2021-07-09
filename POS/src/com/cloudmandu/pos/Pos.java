@@ -23,21 +23,33 @@ public class Pos {
 		printer.displayInventory(inventory);
 		
 		//Select Item - Scanner , loop
-		for (int i = 0; i <=2; i++) {
-			System.out.println("Type item number to add to your cart: ");
-			int selectedItemId = inputHelper.getInteger();
+		boolean finishShopping = false;
+		do {
+			int selectedItemId = inputHelper.getInteger("Type item number to add to your cart, type 0 to quit: ");
 			
-			//Store items - ArrayList
-			BaseItem selectedItem = printer.displayItem(inventory, selectedItemId);
-			shoppingCart.addToCart(selectedItem);
-		}
+			if(selectedItemId != 0) {
+				BaseItem selectedItem = inventory.getInventoryItem(inventory, selectedItemId);
+				boolean isInStock = selectedItem.isInStock();
+				if (!isInStock) {
+					System.out.println("Sorry, this item is out of stock");
+				} else {
+					//Store items - ArrayList
+					printer.displayItem(inventory, selectedItemId);				
+					shoppingCart.addToCart(selectedItem);
+				}
+			} else {
+				System.out.println("Thank you for shopping.");
+				finishShopping = true;
+			}
+									
+		} while (!finishShopping);
 				
 		//Calculate price
 		
 		double totalPrice = calculator.calculateTotalPrice(shoppingCart);
-		double totalPriceTwoDecimals = (double) Math.round(totalPrice * 100) / 100;
 		
-		System.out.printf ("Your total price is: " + totalPriceTwoDecimals);
+		
+		System.out.printf ("Your total price is: " + totalPrice);
 		//int discountedPrice = calculator.getDiscountedPrice(selectedItem);
 		
 		//Print receipt

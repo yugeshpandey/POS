@@ -35,6 +35,12 @@ public class Inventory {
 		this.inventory = inventory;
 	}
 	
+	public BaseItem getInventoryItem(Inventory inventoryObject, int selectedItemId) {
+		Map<Integer, BaseItem> inventory = inventoryObject.getInventory();
+		BaseItem selectedItem = inventory.get(selectedItemId);
+		
+		return selectedItem;
+	}
 	
 
 }

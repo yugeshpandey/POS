@@ -16,6 +16,7 @@ public class Calculator {
 			totalPrice += currentItem.getPrice();
 		}
 		
+		totalPrice = (double) Math.round(totalPrice * 100) / 100;
 		return totalPrice;
 	}
 
