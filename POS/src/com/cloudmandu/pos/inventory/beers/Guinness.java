@@ -26,7 +26,7 @@ public class Guinness extends Beer {
 	@Override
 	public boolean isInStock() {
 		// TODO Auto-generated method stub
-		return true;
+		return false;
 	}
 
 	@Override
