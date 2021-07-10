@@ -53,6 +53,12 @@ public class Guinness extends Beer {
 				+ ", isInStock()=" + isInStock() + ", alcoholContent()=" + alcoholContent() + ", getSixPackPrice()="
 				+ getSixPackPrice() + ", getTwelvePackPrice()=" + getTwelvePackPrice() + "]";
 	}
+
+	@Override
+	public boolean giveDiscount() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 
 }

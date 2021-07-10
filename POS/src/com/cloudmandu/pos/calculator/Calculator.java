@@ -19,5 +19,14 @@ public class Calculator {
 		totalPrice = (double) Math.round(totalPrice * 100) / 100;
 		return totalPrice;
 	}
+	
+	public double calculateDiscountedPrice(BaseItem discountedItem) {
+		double discount = discountedItem.getDiscount();
+		double originalPrice = discountedItem.getPrice();
+		
+		double discountedPrice = originalPrice - ( (discount / 100) * originalPrice);
+		
+		return discountedPrice;
+	}
 
 }

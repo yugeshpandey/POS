@@ -30,4 +30,10 @@ public class Powerball extends Lottery{
 		return true;
 	}
 
+	@Override
+	public boolean giveDiscount() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

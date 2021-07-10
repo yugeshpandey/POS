@@ -54,4 +54,12 @@ public class CoorsLite extends Beer{
 				+ getSixPackPrice() + ", getTwelvePackPrice()=" + getTwelvePackPrice() + "]";
 	}
 
+	@Override
+	public boolean giveDiscount() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
+
 }
