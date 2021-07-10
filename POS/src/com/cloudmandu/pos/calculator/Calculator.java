@@ -7,7 +7,7 @@ import com.cloudmandu.pos.inventory.BaseItem;
 
 public class Calculator {
 	
-	public double getTotalPrice(Cart shoppingCart) {
+	public double calculateTotalPrice(Cart shoppingCart) {
 		ArrayList<BaseItem> cartItems = shoppingCart.getCart();
 		double totalPrice = 0;
 		
@@ -16,6 +16,7 @@ public class Calculator {
 			totalPrice += currentItem.getPrice();
 		}
 		
+		totalPrice = (double) Math.round(totalPrice * 100) / 100;
 		return totalPrice;
 	}
 
