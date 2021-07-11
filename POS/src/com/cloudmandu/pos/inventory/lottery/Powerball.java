@@ -30,4 +30,5 @@ public class Powerball extends Lottery{
 		return true;
 	}
 
+	
 }

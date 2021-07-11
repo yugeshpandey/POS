@@ -53,7 +53,7 @@ public class Heinekein extends Beer{
 				+ ", isInStock()=" + isInStock() + ", alcoholContent()=" + alcoholContent() + ", getSixPackPrice()="
 				+ getSixPackPrice() + ", getTwelvePackPrice()=" + getTwelvePackPrice() + "]";
 	}
-	
-	
+
+		
 
 }
