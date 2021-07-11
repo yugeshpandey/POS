@@ -3,6 +3,7 @@ package com.cloudmandu.pos.printer;
 import java.util.Map;
 import java.util.Set;
 
+import com.cloudmandu.pos.cart.Cart;
 import com.cloudmandu.pos.inventory.BaseItem;
 import com.cloudmandu.pos.inventory.Inventory;
 
@@ -46,6 +47,11 @@ public class Printer {
 		System.out.printf("%10.2f" , selectedItem.getPrice());
 		System.out.println();
 						
+		
+	}
+
+	public void printReceipt(Cart shoppingCart) {
+		
 		
 	}
 
