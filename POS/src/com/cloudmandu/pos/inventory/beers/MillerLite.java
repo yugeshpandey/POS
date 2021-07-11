@@ -54,10 +54,5 @@ public class MillerLite extends Beer{
 				+ getSixPackPrice() + ", getTwelvePackPrice()=" + getTwelvePackPrice() + "]";
 	}
 
-	@Override
-	public boolean giveDiscount() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
+	
 }

@@ -14,5 +14,8 @@ public interface CartIf {
 
 	ArrayList<BaseItem> getCart();
 	
+	void addToDiscountList(BaseItem selectedItem);
+	
+	ArrayList<BaseItem> getDiscountedItems();
 
 }

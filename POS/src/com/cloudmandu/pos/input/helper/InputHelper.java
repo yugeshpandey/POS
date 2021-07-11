@@ -11,5 +11,11 @@ public class InputHelper {
 		return scanner.nextInt();
 	}
 	
+	public char getCharacter(String message) {
+		System.out.println(message);
+		char responseToUppercase = Character.toUpperCase(scanner.next().charAt(0));
+		return responseToUppercase;
+	}
+	
 
 }

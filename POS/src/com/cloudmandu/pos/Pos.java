@@ -15,45 +15,60 @@ public class Pos {
 		Cart shoppingCart = new Cart();
 		Calculator calculator = new Calculator();
 		InputHelper inputHelper = new InputHelper();
-		
-		//Inventory stock - use HashMap 
+
+		// Inventory stock - use HashMap
 		inventory.stockInventory();
-		
-		//Display Inventory - print
+
+		// Display Inventory - print
 		printer.displayInventory(inventory);
-		
-		//Select Item - Scanner , loop
+
+		// Select Item - Scanner , loop
 		boolean finishShopping = false;
 		do {
 			int selectedItemId = inputHelper.getInteger("Type item number to add to your cart, type 0 to quit: ");
-			
-			if(selectedItemId != 0) {
+
+			if (selectedItemId != 0) {
 				BaseItem selectedItem = inventory.getInventoryItem(inventory, selectedItemId);
 				boolean isInStock = selectedItem.isInStock();
 				if (!isInStock) {
 					System.out.println("Sorry, this item is out of stock");
 				} else {
-					//Store items - ArrayList
-					printer.displayItem(inventory, selectedItemId);				
-					shoppingCart.addToCart(selectedItem);
+					printer.displayItem(inventory, selectedItemId);
+					char promptSelection = inputHelper.getCharacter("Type D to get discount, X to remove selected item,"
+							+ " any other key to continue without discount: ");
+					switch (promptSelection) {
+					case 'D':
+						System.out.println("Discount added to " + selectedItem.getName());
+						shoppingCart.addToDiscountList(selectedItem);
+						shoppingCart.addToCart(selectedItem);
+						break;
+					case 'X':
+						System.out.println(selectedItem.getName() + " was removed from your cart.");
+						shoppingCart.removeFromCart(selectedItem);
+						break;
+					default:
+						// Store items - ArrayList
+						shoppingCart.addToCart(selectedItem);
+						break;
+					}
+
 				}
 			} else {
 				System.out.println("Thank you for shopping.");
 				finishShopping = true;
 			}
-									
+
 		} while (!finishShopping);
-				
-		//Calculate price
-		
+
+		// Calculate price
+
 		double totalPrice = calculator.calculateTotalPrice(shoppingCart);
-		
-		
-		System.out.printf ("Your total price is: " + totalPrice);
-		//int discountedPrice = calculator.getDiscountedPrice(selectedItem);
-		
-		//Print receipt
-		//printer.printReceipt(shoppingCart);
+
+		System.out.printf("Your total price is: " + totalPrice);
+		// int discountedPrice = calculator.getDiscountedPrice(selectedItem);
+
+		// Print receipt
+		// printer.printReceipt(shoppingCart);
 
 	}
 
