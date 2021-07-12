@@ -1,13 +1,16 @@
 package com.cloudmandu.pos.printer;
 
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 
+import com.cloudmandu.pos.calculator.Calculator;
 import com.cloudmandu.pos.cart.Cart;
 import com.cloudmandu.pos.inventory.BaseItem;
 import com.cloudmandu.pos.inventory.Inventory;
 
 public class Printer {
+	
 	public void displayInventory(Inventory inventoryObject) {
 		
 		Map<Integer, BaseItem> _inventory = inventoryObject.getInventory();	
@@ -50,8 +53,24 @@ public class Printer {
 		
 	}
 
-	public void printReceipt(Cart shoppingCart) {
+	public void printCartItems(Cart shoppingCart) {
+		ArrayList<BaseItem> currentCart = shoppingCart.getCart();
+		Calculator calculator = new Calculator();
 		
+		System.out.printf("%20s" , "Name");
+		System.out.printf("%10s" , "Price");
+		System.out.println("");
+		
+		for (int i = 0; i < currentCart.size(); i++) {
+			BaseItem currentItem = currentCart.get(i);
+			
+			System.out.printf("%20s" , currentItem.getName());
+			System.out.printf("%10.2f" , currentItem.getPrice());
+			System.out.println();
+		}
+		
+		double totalPrice = calculator.calculateTotalPrice(shoppingCart);
+		System.out.printf("\n\tYour total price is: " + totalPrice);
 		
 	}
 
