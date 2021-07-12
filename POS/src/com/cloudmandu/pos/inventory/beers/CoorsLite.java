@@ -54,4 +54,6 @@ public class CoorsLite extends Beer{
 				+ getSixPackPrice() + ", getTwelvePackPrice()=" + getTwelvePackPrice() + "]";
 	}
 
+	
+
 }

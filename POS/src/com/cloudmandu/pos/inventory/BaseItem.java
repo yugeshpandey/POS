@@ -6,5 +6,6 @@ public abstract class BaseItem {
 	public abstract double getPrice();
 	public abstract double getDiscount();
 	public abstract boolean isInStock();
+	
 
 }

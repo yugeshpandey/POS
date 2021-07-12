@@ -54,4 +54,5 @@ public class MillerLite extends Beer{
 				+ getSixPackPrice() + ", getTwelvePackPrice()=" + getTwelvePackPrice() + "]";
 	}
 
+	
 }

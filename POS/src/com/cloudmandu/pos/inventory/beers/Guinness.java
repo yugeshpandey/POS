@@ -53,6 +53,6 @@ public class Guinness extends Beer {
 				+ ", isInStock()=" + isInStock() + ", alcoholContent()=" + alcoholContent() + ", getSixPackPrice()="
 				+ getSixPackPrice() + ", getTwelvePackPrice()=" + getTwelvePackPrice() + "]";
 	}
-	
 
+	
 }

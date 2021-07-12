@@ -7,6 +7,7 @@ import com.cloudmandu.pos.inventory.BaseItem;
 public class Cart implements CartIf{
 	
 	private ArrayList<BaseItem> currentCart = new ArrayList<>();
+	private ArrayList<BaseItem> discountedItems = new ArrayList<>();
 	
 	@Override
 	public void addToCart(BaseItem selectedItem) {
@@ -20,14 +21,24 @@ public class Cart implements CartIf{
 
 	@Override
 	public void removeFromCart(BaseItem selectedItem) {
-		// TODO Auto-generated method stub
-		
+		currentCart.remove(selectedItem);
 	}
 
 	@Override
 	public void checkout() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void addToDiscountList(BaseItem selectedItem) {
+		discountedItems.add(selectedItem);
+		
+	}
+
+	@Override
+	public ArrayList<BaseItem> getDiscountedItems() {
+		return discountedItems;
 	}
 
 

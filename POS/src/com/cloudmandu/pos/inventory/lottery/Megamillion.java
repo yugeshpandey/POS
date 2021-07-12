@@ -30,4 +30,5 @@ public class Megamillion extends Lottery {
 		return true;
 	}
 
+	
 }
