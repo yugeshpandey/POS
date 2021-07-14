@@ -49,8 +49,11 @@ public class PosProcessor implements ProcessorIf{
 				receipt.setPrice(item.getPrice());
 				receipt.setDiscount(item.getDiscount());
 				receipt.setTax(item.getTax());
-				receipt.setTotal(receipt.getQuantity() * receipt.getPrice()
-						* (100 - (item.getDiscount() * 100) * (100 - (item.getTax() * 100))));
+//				receipt.setTotal(receipt.getQuantity() * receipt.getPrice()
+//						* (100 - (item.getDiscount() * 100) * (100 - (item.getTax() * 100))));
+				receipt.setTotal((receipt.getQuantity()
+						* (receipt.getPrice() - (receipt.getPrice() * receipt.getDiscount() / 100))
+						* (1 + receipt.getTax() / 100)));
 
 				receipts.add(receipt);
 			}
