@@ -2,7 +2,7 @@ package com.cloudmandu.pos.constants;
 
 public class Constants {
 	public static final double TAX = 0.7;
-	
+		
 	public static String HEINEKEIN = "Heinekein";
 	public static double HEINEKEIN_PRICE = 10.99;
 	public static double HEINEKEIN_ALC_CONTENT = 4.2;
@@ -36,6 +36,7 @@ public class Constants {
 	public static String ITEM_SELECT_PROMPT = "Select an item by ID";
 	public static String ITEM_SELECTED_PROMPT = "Added to Cart";
 	public static String CHECKOUT_PROMPT = "Press C to checkout or press any key to continue";
+	public static String ITEM_QUANTITY_PROMPT = "Please type item quantity";
 	
 
 }

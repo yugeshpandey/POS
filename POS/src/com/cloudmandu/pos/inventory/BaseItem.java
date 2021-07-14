@@ -10,7 +10,7 @@ public abstract class BaseItem {
 	public abstract boolean isInStock();
 	public double getTax() {
 		return Constants.TAX;
-	};
+	}
 	
 
 }

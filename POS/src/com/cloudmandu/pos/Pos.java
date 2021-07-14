@@ -2,11 +2,8 @@ package com.cloudmandu.pos;
 
 import java.util.List;
 
-//import com.cloudmandu.pos.calculator.Calculator;
-import com.cloudmandu.pos.cart.Cart;
 import com.cloudmandu.pos.constants.Constants;
 import com.cloudmandu.pos.input.helper.InputHelper;
-//import com.cloudmandu.pos.inventory.BaseItem;
 import com.cloudmandu.pos.inventory.Inventory;
 import com.cloudmandu.pos.printer.Printer;
 import com.cloudmandu.pos.processor.PosProcessor;
@@ -17,7 +14,7 @@ public class Pos {
 	public static void main(String[] args) {
 		Inventory inventory = new Inventory();
 		Printer printer = new Printer();
-		//Calculator calculator = new Calculator();
+		// Calculator calculator = new Calculator();
 		InputHelper inputHelper = new InputHelper();
 		PosProcessor processor = new PosProcessor(inventory);
 
@@ -29,34 +26,33 @@ public class Pos {
 
 		// Select Item - Scanner , loop
 		boolean checkOut = false;
-		while(checkOut == false) {
+		while (checkOut == false) {
 			printer.printSimpleMessage(Constants.ITEM_SELECT_PROMPT);
 			int selectedItemID = inputHelper.selectItemByID();
+			printer.printSimpleMessage(Constants.ITEM_QUANTITY_PROMPT);
+			int itemQuantity = inputHelper.selectItemQuantity();
 			
-			processor.process(selectedItemID);
+			for (int i = 0; i < itemQuantity; i++) {
+				processor.process(selectedItemID);
+			}
+						
+			
 			printer.printSimpleMessage(Constants.ITEM_SELECTED_PROMPT);
 			printer.printSimpleMessage(Constants.CHECKOUT_PROMPT);
-			
+
 			char userInput = inputHelper.selectOption();
-			
-			if(userInput == 'c' || userInput == 'C' ) {
+
+			if (userInput == 'c' || userInput == 'C') {
 				checkOut = true;
-			} 
-			
-			
-			
+			}
 		}
-		
+
 		List<Receipt> finalReceipt = processor.checkOut();
-		
+
 		printer.printReceipt(finalReceipt);
-		
-		
-		
 
 		// Calculate price
-		
-		 
+
 		/*
 		 * InputHelper inputHelperPrompt = new InputHelper(); char finalPrompt =
 		 * inputHelperPrompt.
@@ -66,7 +62,7 @@ public class Pos {
 		 * 
 		 * case 'X': inputHelper.shoppingMain(inventory); break; }
 		 */
-		
+
 		// Print receipt
 
 	}

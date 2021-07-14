@@ -1,6 +1,7 @@
 package com.cloudmandu.pos.processor;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import com.cloudmandu.pos.cart.Cart;
@@ -32,23 +33,44 @@ public class PosProcessor implements ProcessorIf{
 
 	@Override
 	public List<Receipt> checkOut() {
-	
+
+		// itemID name quantity price discount total
 		List<BaseItem> items = cart.getCart();
 		List<Receipt> receipts = new ArrayList<>();
-		
-		for(BaseItem item : items) {
-			Receipt receipt = new Receipt();
-			receipt.setName(item.getName());
-			receipt.setQuantity(1);
-			receipt.setPrice(item.getPrice());
-			receipt.setDiscount(item.getDiscount());
-			receipt.setTax(item.getTax());
-			receipt.setTotal((receipt.getQuantity() * receipt.getPrice() * (100 - ( item.getDiscount() * 100) * (100 - ( item.getTax() * 100)))) / 100 );
-			
-			receipts.add(receipt);
+		HashSet<BaseItem> itemSet = new HashSet<>();
+
+		for (BaseItem item : items) {
+			if (itemSet.add(item)) {
+				Receipt receipt = new Receipt();
+				int itemQuantity = findItemQuantity(items, item);
+
+				receipt.setName(item.getName());
+				receipt.setQuantity(itemQuantity);
+				receipt.setPrice(item.getPrice());
+				receipt.setDiscount(item.getDiscount());
+				receipt.setTax(item.getTax());
+				receipt.setTotal(receipt.getQuantity() * receipt.getPrice()
+						* (100 - (item.getDiscount() * 100) * (100 - (item.getTax() * 100))));
+
+				receipts.add(receipt);
+			}
 		}
 		return receipts;
 	}
+	
+	public int findItemQuantity(List<BaseItem> items, BaseItem currentItem) {
+		int itemCount = 0;
+
+		for (BaseItem item : items) {
+			if (currentItem.equals(item)) {
+				itemCount += 1;
+			}
+		}
+
+		return itemCount;
+
+	}
+	
 
 	
 }

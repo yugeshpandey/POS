@@ -31,6 +31,13 @@ public class InputHelper {
 	public void closeScanner() {
 		scanner.close();
 	}
+
+	public int selectItemQuantity() {
+		int retVal = scanner.nextInt();
+		scanner.nextLine();
+		
+		return retVal;
+	}
 	
 	/*
 	 * public Cart shoppingMain(Inventory inventory) { Cart shoppingCart = new
