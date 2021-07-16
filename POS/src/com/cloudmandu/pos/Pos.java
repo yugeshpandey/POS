@@ -28,9 +28,27 @@ public class Pos {
 		boolean checkOut = false;
 		while (checkOut == false) {
 			printer.printSimpleMessage(Constants.ITEM_SELECT_PROMPT);
-			int selectedItemID = inputHelper.selectItemByID();
+			int selectedItemID = 0;
+			try {
+				selectedItemID = inputHelper.selectItemByID();
+			} catch (Exception e) {
+				printer.printSimpleMessage(e.getMessage());
+				inputHelper.clearBuffer();
+				continue;
+			}
+			
 			printer.printSimpleMessage(Constants.ITEM_QUANTITY_PROMPT);
-			int itemQuantity = inputHelper.selectItemQuantity();
+			
+			int itemQuantity = 0;
+			try {
+				itemQuantity = inputHelper.selectItemQuantity();
+			} catch (Exception e) {
+				printer.printSimpleMessage(e.getMessage());
+				inputHelper.clearBuffer();
+				continue;
+			}
+			
+			
 			
 			for (int i = 0; i < itemQuantity; i++) {
 				processor.process(selectedItemID);

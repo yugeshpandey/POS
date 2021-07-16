@@ -1,5 +1,7 @@
 package com.cloudmandu.pos.printer;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -83,6 +85,20 @@ public class Printer {
 	public void printReceipt(List<Receipt> finalReceipt) {
 		System.out.println(finalReceipt);
 		
+	}
+	
+	public void writeReceiptToFile(List<Receipt> finalReceipt) {
+		
+		
+		try {
+		      FileWriter myWriter = new FileWriter("filename.htm");
+		      myWriter.write(finalReceipt.toString());
+		      myWriter.close();
+		      System.out.println("Successfully wrote to the file.");
+		    } catch (IOException e) {
+		      System.out.println("An error occurred.");
+		      e.printStackTrace();
+		    }
 	}
 
 }

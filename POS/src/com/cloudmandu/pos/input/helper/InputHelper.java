@@ -1,6 +1,9 @@
 package com.cloudmandu.pos.input.helper;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
+
+
 
 
 
@@ -12,11 +15,11 @@ public class InputHelper {
 		scanner = new Scanner(System.in);
 	}
 	
-	public int selectItemByID(){
-		int retVal = scanner.nextInt();
-		scanner.nextLine();
+	public int selectItemByID() {
 		
-		return retVal;
+			int retVal = scanner.nextInt();
+			scanner.nextLine();
+			return retVal;
 	
 	}
 	
@@ -32,11 +35,15 @@ public class InputHelper {
 		scanner.close();
 	}
 
-	public int selectItemQuantity() {
+	public int selectItemQuantity() throws InputMismatchException {
 		int retVal = scanner.nextInt();
 		scanner.nextLine();
 		
 		return retVal;
+	}
+	
+	public void clearBuffer() {
+		scanner.nextLine();
 	}
 	
 	/*
