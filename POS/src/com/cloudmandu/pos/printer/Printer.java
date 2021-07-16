@@ -1,6 +1,9 @@
 package com.cloudmandu.pos.printer;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -8,6 +11,7 @@ import com.cloudmandu.pos.calculator.Calculator;
 import com.cloudmandu.pos.cart.Cart;
 import com.cloudmandu.pos.inventory.BaseItem;
 import com.cloudmandu.pos.inventory.Inventory;
+import com.cloudmandu.pos.receipt.Receipt;
 
 public class Printer {
 	
@@ -72,6 +76,29 @@ public class Printer {
 		double totalPrice = calculator.calculateTotalPrice(shoppingCart);
 		System.out.printf("\n\tYour total price is: " + totalPrice);
 		
+	}
+	
+	public void printSimpleMessage(String message) {
+		System.out.println(message);
+	}
+
+	public void printReceipt(List<Receipt> finalReceipt) {
+		System.out.println(finalReceipt);
+		
+	}
+	
+	public void writeReceiptToFile(List<Receipt> finalReceipt) {
+		
+		
+		try {
+		      FileWriter myWriter = new FileWriter("filename.htm");
+		      myWriter.write(finalReceipt.toString());
+		      myWriter.close();
+		      System.out.println("Successfully wrote to the file.");
+		    } catch (IOException e) {
+		      System.out.println("An error occurred.");
+		      e.printStackTrace();
+		    }
 	}
 
 }
